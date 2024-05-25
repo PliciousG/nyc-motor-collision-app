@@ -48,7 +48,8 @@ st.markdown("""
             """)
 
 DATA_URL = (
-    'Motor_Vehicle_Collisions_-_Crashes.csv'
+    'nyc_dataset'
+    #'Motor_Vehicle_Collisions_-_Crashes.csv'
 )
 
 @st.cache_data(persist=True)
