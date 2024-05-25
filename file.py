@@ -41,17 +41,12 @@ with st.sidebar:
 # title
 st.title("Motor Vehicle Collisions in New York City🚗")
 
-# description
-st.markdown("""
-            This application is a Streamlit dashboard that can be used to analyse motor vehicle collision in NYC.
-            Use the sliders and dropdowns to filter data and visuslise the results.
-            """)
-
 DATA_URL = 'https://drive.google.com/uc?export=download&id=1EvaV2rm0DC2glPjRz_kA0MXn2eIGm5y5'
 
 @st.cache_data(persist=True)
 def load_data(nrows):
-  data = pd.read_csv(DATA_URL, nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+  data = pd.read_csv(DATA_URL, nrows=nrows)
+  data['date/time'] = pd.to_datetime(data['CRASH_DATE' + ' ' + data['CRASH_TIME']) 
   data.dropna(subset=['LATITUDE', 'LONGITUDE'], inplace=True) #computation
   lowercase = lambda x: str(x).lower()
   data.rename(lowercase, axis='columns', inplace=True)
@@ -63,7 +58,7 @@ data = load_data(100000)
 original_data = data
 
 if selected == "Overview":
-    st.subheader("This application is a Streamlit dashboard that can be used to analyze motor vehicle collisions in NYC. Navigate to the various sections using the sidebar. Use the sliders and dropdowns to filter data and visualise the results.")
+    st.subheader("This application is a Streamlit dashboard that can be used to analyse motor vehicle collisions in NYC. Navigate to the various sections using the sidebar. Use the sliders and dropdowns to filter data and visualise the results.")
     
     # summary statistics
     st.header("Summary Statistics")
