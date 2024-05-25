@@ -45,8 +45,7 @@ DATA_URL = 'https://drive.google.com/uc?export=download&id=1EvaV2rm0DC2glPjRz_kA
 
 @st.cache_data(persist=True)
 def load_data(nrows):
-  data = pd.read_csv(DATA_URL, nrows=nrows)
-  data['date/time'] = pd.to_datetime(data['CRASH_DATE'] + ' ' + data['CRASH_TIME']) 
+  data = pd.read_csv('Motor_Vehicle_Collisions_-_Crashes.csv', nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
   data.dropna(subset=['LATITUDE', 'LONGITUDE'], inplace=True) #computation
   lowercase = lambda x: str(x).lower()
   data.rename(lowercase, axis='columns', inplace=True)
