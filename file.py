@@ -47,7 +47,7 @@ st.markdown("""
             Use the sliders and dropdowns to filter data and visuslise the results.
             """)
 
-DATA_URL = 'https://drive.google.com/uc?export=download&id=1QxAoh6XkQXiXXTRFCRwq4EFx9A7zZC1N'
+DATA_URL = 'https://drive.google.com/uc?export=download&id=1EvaV2rm0DC2glPjRz_kA0MXn2eIGm5y5'
 
 @st.cache_data(persist=True)
 def load_data(nrows):
