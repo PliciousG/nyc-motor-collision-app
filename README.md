@@ -1,5 +1,7 @@
 # nyc-motor-collision-app
 
 
-Uploading NYC_motor_vehicle_collisions_app.mp4…
+
+
+https://github.com/PliciousG/nyc-motor-collision-app/assets/106605456/9331c85b-8cf8-4bf1-b43e-f77c67fd82e9
 
