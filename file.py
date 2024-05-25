@@ -13,7 +13,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# custom CSS for unique styling
+# CSS styling
 st.markdown("""
     <style>
     .main {
@@ -47,14 +47,11 @@ st.markdown("""
             Use the sliders and dropdowns to filter data and visuslise the results.
             """)
 
-DATA_URL = (
-    'nyc_dataset'
-    #'Motor_Vehicle_Collisions_-_Crashes.csv'
-)
+DATA_URL = 'https://drive.google.com/uc?export=download&id=1QxAoh6XkQXiXXTRFCRwq4EFx9A7zZC1N'
 
 @st.cache_data(persist=True)
 def load_data(nrows):
-  data = pd.read_csv('Motor_Vehicle_Collisions_-_Crashes.csv', nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+  data = pd.read_csv(DATA_URL, nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
   data.dropna(subset=['LATITUDE', 'LONGITUDE'], inplace=True) #computation
   lowercase = lambda x: str(x).lower()
   data.rename(lowercase, axis='columns', inplace=True)
